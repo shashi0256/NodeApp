@@ -14,4 +14,11 @@ node {
             echo "Trying to psusj docker build to DockerHub"
 
     }
+    stage("Deploy To Kuberates Cluster"){
+       kubernetesDeploy(
+         configs: 'ReplicationController.yml', 
+         kubeconfigId: 'KUBERNETES_CONFIG',
+         enableConfigSubstitution: true
+        )
+     }
 }
