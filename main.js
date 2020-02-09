@@ -1,12 +1,26 @@
-// load the http module
-var http = require('http');
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minimal JS front-end App Example</title>
+  <script src="src/model/Book.js"></script>
+</head>
+<body>
+  <h1>Public Library</h1>
+  <h2>An Example of a Minimal JavaScript front-end App</h2>
+  <p>This app supports the following operations:</p>
+  <menu>
+    <li><a href="listBooks.html"><button type="button">List all books</button></a></li>
+    <li><a href="createBook.html"><button type="button">Add a new book</button></a></li>
+    <li><a href="updateBook.html"><button type="button">Update a book</button></a></li>
+    <li><a href="deleteBook.html"><button type="button">Delete a book</button></a></li>
+    <li><button type="button" onclick="Book.clearData()">Clear database</button></li>
+    <li><button type="button" onclick="Book.createTestData()">Create test data</button></li>
+  </menu>
+</body>
+</html> 
 
-// configure our HTTP server
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello shashidhar, Congratualtions!!! \n");
-});
 
-// listen on localhost:8000
+\\localost:8000
 server.listen(8000);
 console.log("Server listening on port 8000 :  http://127.0.0.1:8000/");
