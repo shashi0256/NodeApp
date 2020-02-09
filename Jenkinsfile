@@ -16,7 +16,7 @@ node {
     }
     stage("Deploy To Kuberates Cluster"){
        kubernetesDeploy(
-         configs: 'ReplicationController.yml', 
+         configs: 'ReplicationController.yml',
          kubeconfigId: 'KUBERNETES_CONFIG',
          enableConfigSubstitution: true
         )
