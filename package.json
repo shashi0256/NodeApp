@@ -1,23 +1,13 @@
 {
-  "name": "crudsinfotech-nodeapp",
+  "name": "docker_web_app",
   "version": "1.0.0",
-  "description": "A Hello World HTTP server using Node JS",
-  "main": "main.js",
+  "description": "Node.js on docker",
+  "author": "shashidhar <shashi256.yedulla@gmail.com>",
+  "main": "server.js",
   "scripts": {
-    "test": "node test.js",
-    "start": "node main.js"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rchidana/NodeApp"
-  },
-  "keywords": [
-    "node",
-    "docker",
-    "dockerfile"
-  ],
-  "author": "crudsinfotechng@gmail.com",
-  "license": "ISC",
-  "devDependencies": { "test": ">=0.6.0" }
+  "dependencies": {
+    "express": "^4.16.1"
+  }
 }
-

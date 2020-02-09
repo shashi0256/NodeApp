@@ -1,33 +1,17 @@
 node {
     def app
-
     stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
-        checkout scm
+      checkout scm
     }
-
-    stage('Build image') {
-        /* This builds the actual image */
-
+    stage('Build Image') {
         app = docker.build("shashi256/nodeapp")
     }
-
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
+    stage('Push Image') {
+    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
         }
-    }
+            echo "Trying to psusj docker build to DockerHub"
 
-    stage('Push image') {
-        /* 
-			You would need to first register with DockerHub before you can push images to your account
-		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-            } 
-                echo "Trying to Push Docker Build to DockerHub"
     }
 }
